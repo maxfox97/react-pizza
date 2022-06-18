@@ -4,7 +4,7 @@ function SortPopup({items, onClickItem}) {
     const [visiblePopup, setvisiblePopup] = useState(false);
     const sortRef = useRef();
     const [activeItem,setActiveItem] = useState(0);
-    const activeLabel = items[activeItem];
+    const activeLabel = items[activeItem].name;
 
 const onSelectItem = (index) => {
         setActiveItem(index);
@@ -49,9 +49,12 @@ const handleOutsideClick = (e) => {
             <div className="sort__popup">
                 <ul>
                     {items &&
-                        items.map((item,index) => (
-                            <li className={activeItem === index ? 'active' : ''} key={`${item}_${index}`} onClick={() => onSelectItem(index)}>
-                            {item}
+                        items.map((obj,index) => (
+                            <li className={activeItem === index ? 'active' : ''}
+                             key={`${obj.type}_${index}`} 
+                             onClick={() => onSelectItem(index)}
+                             >
+                            {obj.name}
                             </li>
                     ))}
                 </ul>

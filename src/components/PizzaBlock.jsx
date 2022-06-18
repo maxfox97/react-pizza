@@ -20,7 +20,7 @@ function PizzaBlock({name, imageUrl, sizes, price, types}) {
   }
 
 
-  console.log(name, sizes);
+  
 
   return (
     <div className="pizza-block">
